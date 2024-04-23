@@ -26,6 +26,20 @@ function generate {
 		-d author_email="joe@example.com"
 }
 
+function generate-hatch {
+    copier copy -f --trust -r HEAD ../copier-hatch "$TEST_OUTPUT" \
+		-d testing=true \
+		-d project_name="Testing" \
+		-d project_description="Testing this great template" \
+		-d author_fullname="John Doe" \
+		-d author_username="joesgithub" \
+		-d author_email="joe@example.com"
+}
+
+function generate-multi {
+    generate
+    generate-hatch
+}
 
 # This idea is heavily inspired by: https://github.com/adriancooney/Taskfile
 TIMEFORMAT=$'\nTask completed in %3lR'
